@@ -1,20 +1,44 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+
+import { FlatList, StyleSheet, View } from 'react-native';
+
+import DetailsInput from './components/DetailsInput';
+import DetailsItem from './components/DetailsItem';
 
 export default function App() {
+  const [details, setDetails] = useState([]);
+
+  function showDetails(username, email) {
+    setDetails((currentDetails) => [
+      ...currentDetails,
+      { usernameProp: username, emailProp: email },
+    ]);
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.Appcontainer}>
+      <DetailsInput onShowDetails={showDetails} />
+      <FlatList
+        data={details}
+        alwaysBounceVertical={false}
+        renderItem={(itemData) => {
+          return (
+            <DetailsItem
+              usernameValue={itemData.item.usernameProp}
+              emailValue={itemData.item.emailProp}
+              uniqueKey={itemData.index}
+            />
+          );
+        }}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  Appcontainer: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginHorizontal: 15,
+    marginTop: 40,
   },
 });
