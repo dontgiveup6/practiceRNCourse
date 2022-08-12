@@ -20,10 +20,10 @@ const styles = StyleSheet.create({
   itemContainer: {
     marginBottom: 5,
     borderRadius: 6,
-    backgroundColor: '#68884e',
+    backgroundColor: '#5da820',
   },
   pressedItem: {
-    backgroundColor: '#4f633e',
+    backgroundColor: '#68884e',
     borderRadius: 6,
   },
   itemText: {

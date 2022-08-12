@@ -37,7 +37,7 @@ export default function App() {
   return (
     <View style={styles.Appcontainer}>
       <View style={{ marginBottom: 16 }}>
-        <Button title="Add Details" onPress={onAddDetail} />
+        <Button title="Add Details" color="#5da820" onPress={onAddDetail} />
       </View>
       <DetailsInput
         visible={modalVisible}

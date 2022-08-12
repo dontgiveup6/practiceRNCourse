@@ -1,6 +1,14 @@
 import { useState } from 'react';
 
-import { StyleSheet, Button, Text, TextInput, View, Modal } from 'react-native';
+import {
+  StyleSheet,
+  Button,
+  Text,
+  TextInput,
+  View,
+  Modal,
+  Image,
+} from 'react-native';
 
 export default function DetailsInput(props) {
   const [username, setUsername] = useState('');
@@ -23,6 +31,10 @@ export default function DetailsInput(props) {
   return (
     <Modal visible={props.visible} animationType="slide">
       <View style={styles.wholeContainer}>
+        <Image
+          style={styles.image}
+          source={require('../assets/images/goal.png')}
+        />
         <View style={styles.inputContainer}>
           <Text style={styles.textLabel}>Username</Text>
           <TextInput
@@ -43,10 +55,14 @@ export default function DetailsInput(props) {
         </View>
         <View style={styles.buttonContainer}>
           <View style={styles.buttton}>
-            <Button onPress={showDetails} title="List details" />
+            <Button
+              onPress={showDetails}
+              color="#5da820"
+              title="List details"
+            />
           </View>
           <View style={styles.buttton}>
-            <Button onPress={props.onCancel} title="Cancel" />
+            <Button onPress={props.onCancel} color="#d84747" title="Cancel" />
           </View>
         </View>
       </View>
@@ -60,9 +76,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 24,
-    borderBottomWidth: 1,
-    borderBottomColor: '#cccccc',
+    backgroundColor: '#3b306e',
+  },
+  image: {
+    width: 100,
+    height: 100,
+    margin: 20,
   },
   inputContainer: {
     width: '100%',
@@ -80,6 +99,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginLeft: 5,
+    color: '#ffffff',
   },
   inputText: {
     fontSize: 18,
@@ -88,7 +108,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginTop: 5,
     padding: 10,
-    color: '#000000',
-    borderColor: '#000000',
+    color: '#ffffff',
+    borderColor: '#ffffff',
   },
 });
